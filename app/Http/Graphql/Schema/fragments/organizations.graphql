@@ -1,0 +1,23 @@
+extend type Query {
+  organizations(where: organizations_where, orderBy: [organizations_order_by]): [Organization!]!
+}
+
+extend type Mutation {
+  addOrganization(object: organizations_input): Organization!
+}
+
+type Organization {
+  id: Int!
+  accountId: Int!
+  name: String!
+  email: String
+  phone: String
+  address: String
+  city: String
+  region: String
+  country: String
+  postalCode: String
+
+  contacts: [Contact!]!
+  account: Account
+}

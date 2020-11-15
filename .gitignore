@@ -4,6 +4,8 @@
 /public/js
 /public/mix-manifest.json
 /public/storage
+/public/vendor
+
 /storage/*.key
 /vendor
 .DS_Store

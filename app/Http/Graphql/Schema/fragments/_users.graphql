@@ -1,0 +1,19 @@
+# Generated content from Users.php. DO NOT EDIT. 
+
+input users_where {
+  firstName: where_comparison_string
+  lastName: where_comparison_string
+  email: where_comparison_string
+}
+
+input users_order_by {
+  firstName: order_by_direction
+  lastName: order_by_direction
+  email: order_by_direction
+}
+
+input users_input {
+  firstName: String
+  lastName: String
+  email: String
+}

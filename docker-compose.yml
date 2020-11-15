@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres:12.4
+    volumes:
+      - ./docker/sql-dumps:/docker-entrypoint-initdb.d
+    ports:
+      - 32770:5432
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_DB: "local"
+      POSTGRES_PASSWORD: ""
+      POSTGRES_HOST_AUTH_METHOD: "trust"

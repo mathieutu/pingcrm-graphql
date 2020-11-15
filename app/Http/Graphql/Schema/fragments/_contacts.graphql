@@ -1,0 +1,37 @@
+# Generated content from Contacts.php. DO NOT EDIT. 
+
+input contacts_where {
+  firstName: where_comparison_string
+  lastName: where_comparison_string
+  email: where_comparison_string
+  phone: where_comparison_string
+  address: where_comparison_string
+  city: where_comparison_string
+  region: where_comparison_string
+  country: where_comparison_string
+  postalCode: where_comparison_string
+}
+
+input contacts_order_by {
+  firstName: order_by_direction
+  lastName: order_by_direction
+  email: order_by_direction
+  phone: order_by_direction
+  address: order_by_direction
+  city: order_by_direction
+  region: order_by_direction
+  country: order_by_direction
+  postalCode: order_by_direction
+}
+
+input contacts_input {
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+  address: String
+  city: String
+  region: String
+  country: String
+  postalCode: String
+}

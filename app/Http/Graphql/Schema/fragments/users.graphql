@@ -1,0 +1,16 @@
+extend type Query {
+  users(where: users_where, orderBy: [users_order_by!]): [User!]!
+}
+
+type User {
+  id: Int!
+  accountId: Int!
+  firstName: String!
+  lastName: String!
+  name: String!
+  email: String!
+  password: String
+  owner: Boolean!
+  photoPath: String
+  account: Account
+}

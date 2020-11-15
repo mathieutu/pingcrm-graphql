@@ -1,0 +1,72 @@
+# Generated content from InputUtils.php. DO NOT EDIT. 
+
+input where_comparison_id {
+  _eq: ID
+  _neq: ID
+  _gt: ID
+  _lt: ID
+  _gte: ID
+  _lte: ID
+  _is_null: ID
+  _in: [ID]
+  _nin: [ID]
+}
+
+input where_comparison_string {
+  _eq: String
+  _neq: String
+  _gt: String
+  _lt: String
+  _gte: String
+  _lte: String
+  _is_null: String
+  _in: [String]
+  _nin: [String]
+  _like: String
+  _nlike: String
+  _ilike: String
+  _nilike: String
+  _similar: String
+  _nsimilar: String
+}
+
+input where_comparison_float {
+  _eq: Float
+  _neq: Float
+  _gt: Float
+  _lt: Float
+  _gte: Float
+  _lte: Float
+  _is_null: Float
+  _in: [Float]
+  _nin: [Float]
+}
+
+input where_comparison_int {
+  _eq: Int
+  _neq: Int
+  _gt: Int
+  _lt: Int
+  _gte: Int
+  _lte: Int
+  _is_null: Int
+  _in: [Int]
+  _nin: [Int]
+}
+
+input where_comparison_boolean {
+  _eq: Boolean
+  _neq: Boolean
+  _gt: Boolean
+  _lt: Boolean
+  _gte: Boolean
+  _lte: Boolean
+  _is_null: Boolean
+  _in: [Boolean]
+  _nin: [Boolean]
+}
+
+enum order_by_direction {
+  asc
+  desc
+}

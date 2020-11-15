@@ -1,0 +1,20 @@
+extend type Query {
+  accounts(where: account_where, orderBy: [account_order_by]): [Account!]!
+}
+
+type Account {
+  id: Int!
+  name: String!
+
+  users: [User!]!
+  contacts: [Contact]!
+  organizations: [Organization]!
+}
+
+input account_where {
+  name: where_comparison_string
+}
+
+input account_order_by {
+  name: order_by_direction
+}

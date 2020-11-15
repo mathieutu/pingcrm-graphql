@@ -1,0 +1,15 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  now: DateTime
+}
+
+type Mutation {
+  now: DateTime
+}
+
+scalar Date
+scalar DateTime

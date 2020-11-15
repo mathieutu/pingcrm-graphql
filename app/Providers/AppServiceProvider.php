@@ -2,16 +2,54 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\UrlWindow;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use League\Glide\Server;
 
 class AppServiceProvider extends ServiceProvider
 {
+
+    public function boot()
+    {
+        if ($this->app->runningInConsole() && !$this->app->runningUnitTests()) {
+            $this->dumpAllSqlQueries();
+        }
+    }
+
+    private function dumpAllSqlQueries()
+    {
+        $this->app['db']->listen(function (QueryExecuted $query) {
+            if (strpos($query->sql, 'telescope_entries') === false) {
+                dump($this->replaceBindings($query->bindings, $query->sql));
+            }
+        });
+    }
+
+
+    private function replaceBindings(array $bindings, string $query)
+    {
+        $search = '#BINDING#' . Str::random() . '#BINDING#';
+
+        $queryWithHash = preg_replace('/\B\?/', $search, $query);
+
+        $segments = explode($search, $queryWithHash);
+
+        $result = array_shift($segments);
+
+        foreach ($segments as $key => $segment) {
+            $result .= str_replace('"', "'", json_encode($bindings[$key])) . $segment;
+        }
+
+        return $result;
+    }
+
+
     /**
      * Register any application services.
      *

@@ -1,0 +1,34 @@
+extend type Query {
+  contacts(where: contacts_where, orderBy: [contacts_order_by]): [Contact!]!
+}
+
+type Contact {
+  id: Int!
+  accountId: Int!
+  organizationId: Int
+  firstName: String!
+  lastName: String!
+  name: String!
+  email: String
+  phone: String
+  address: String
+  city: String
+  region: String
+  country: String
+  postalCode: String
+
+  organization: Organization
+  account: Account
+}
+
+input contacts_where {
+  email: where_comparison_string
+  firstName: where_comparison_string
+  lastName: where_comparison_string
+}
+
+input contacts_order_by {
+  email: order_by_direction
+  firstName: order_by_direction
+  lastName: order_by_direction
+}

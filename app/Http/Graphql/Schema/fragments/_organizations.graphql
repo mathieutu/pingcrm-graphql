@@ -1,0 +1,34 @@
+# Generated content from Organizations.php. DO NOT EDIT. 
+
+input organizations_where {
+  name: where_comparison_string
+  email: where_comparison_string
+  phone: where_comparison_string
+  address: where_comparison_string
+  city: where_comparison_string
+  region: where_comparison_string
+  country: where_comparison_string
+  postalCode: where_comparison_string
+}
+
+input organizations_order_by {
+  name: order_by_direction
+  email: order_by_direction
+  phone: order_by_direction
+  address: order_by_direction
+  city: order_by_direction
+  region: order_by_direction
+  country: order_by_direction
+  postalCode: order_by_direction
+}
+
+input organizations_input {
+  name: String
+  email: String
+  phone: String
+  address: String
+  city: String
+  region: String
+  country: String
+  postalCode: String
+}
