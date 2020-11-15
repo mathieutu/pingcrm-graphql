@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Http\Graphql\Commands;
 
 use App\Http\Graphql\GraphQL;
 use GraphQL\Utils\SchemaPrinter;

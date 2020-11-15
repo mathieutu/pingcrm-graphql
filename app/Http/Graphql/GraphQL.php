@@ -55,13 +55,13 @@ class GraphQL
         return $this->getSchemaFolder('fragments') . ($path ? DIRECTORY_SEPARATOR . $path : $path);
     }
 
-    public function generateFragmentsSDLFromPHPGenerators(): array
+    public function getFragmentsSDLFromPHPGenerators(): array
     {
         $namespace = app()->getNamespace();
 
         return collect(File::allFiles($this->getGeneratorsFolderPath()))
             ->filter(fn(SplFileInfo $file) => $file->getExtension() === 'php')
-            ->map(function (SplFileInfo $file) use ($namespace) {
+            ->mapWithKeys(function (SplFileInfo $file) use ($namespace) {
                 $class = $namespace . str_replace(
                         ['/', '.php'],
                         ['\\', ''],
@@ -76,12 +76,7 @@ class GraphQL
 
                 $fileName = '_' . Str::snake($file->getFilenameWithoutExtension()) . '.graphql';
 
-                File::put(
-                    $this->getFragmentsFolderPath($fileName),
-                    "# Generated content from {$file->getFilename()}. DO NOT EDIT. \n\n{$content}\n"
-                );
-
-                return $fileName;
+                return [$this->getFragmentsFolderPath($fileName) => "# Generated content from {$file->getFilename()}. DO NOT EDIT. \n\n{$content}\n"];
             })
             ->all();
     }

@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Http\Graphql\Commands\GenerateFragments;
+use App\Http\Graphql\Commands\GenerateSchema;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        GenerateFragments::class,
+        GenerateSchema::class
     ];
 
     /**
@@ -34,7 +37,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

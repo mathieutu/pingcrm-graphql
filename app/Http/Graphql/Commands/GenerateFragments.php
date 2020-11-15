@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Http\Graphql\Commands;
 
 use App\Http\Graphql\GraphQL;
-use GraphQL\Type\Schema;
-use GraphQL\Utils\SchemaPrinter;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
-use Symfony\Component\Finder\SplFileInfo;
 
 class GenerateFragments extends Command
 {
@@ -31,8 +27,9 @@ class GenerateFragments extends Command
 
     public function handle(): int
     {
-        foreach ($this->graphQL->generateFragmentsSDLFromPHPGenerators() as $fileName) {
-            $this->info("$fileName was generated.");
+        foreach ($this->graphQL->getFragmentsSDLFromPHPGenerators() as $filePath => $content) {
+            File::put($filePath, $content);
+            $this->info("$filePath was generated.");
         }
 
         return 0;
