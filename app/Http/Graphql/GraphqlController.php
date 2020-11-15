@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Graphql;
 
-use App\Http\Graphql\GraphQL;
+use App\Http\Controllers\Controller;
 use Butler\Graphql\Concerns\HandlesGraphqlRequests;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Schema;

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\GraphqlController;
+use App\Http\Graphql\GraphqlController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
